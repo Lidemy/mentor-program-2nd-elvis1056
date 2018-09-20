@@ -6,9 +6,9 @@ function add(a, b) {
 
   let carry = 0
   for(let i = 0 ; i<length ; i++) {
-  const n = Number(arrA[i] || 0) + Number(arrB[i] || 0) + carry
-  ans[i] = n % 10
-  carry - Math.floor(n / 10) 
+    const n = Number(arrA[i] || 0) + Number(arrB[i] || 0) + carry
+    ans[i] = n % 10
+    carry = Math.floor(n / 10) 
   }
 
   if (carry) {
