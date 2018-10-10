@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>week4.hw4化繁為簡</title>
+	
+	<script type="text/javascript">
+
+//每次在操縱 DOM 物件時，都需要輸入document.querySelector()，重複幾次之後會覺得有點煩瑣，所以我們可以實作出一個簡單的 function 叫做q，可以快速的選取到你要的元素，接著利用選到之後的這個物件進行常見的操作（hide跟show）
+
+//可以參考以下範例，只要能夠按照以下範例運行即可：
+
+//var element = q('.title')
+//element.hide() // 隱藏
+//element.show() // 顯示 
+
+		document.addEventListener("DOMContentLoaded", function() {
+			let test = document.querySelector(".letter")
+			let span = document.createElement("span")
+			span.innerText = "You find me"
+			span.classList.add("show")
+			test.appendChild(span)
+		
+
+		document.querySelector("#hide").addEventListener("click", () => {
+			document.querySelector(".letter > span").classList.add("showme")
+		})
+		document.querySelector("#show").addEventListener("click", () => {
+			document.querySelector(".letter > span").classList.remove("showme")
+		})
+
+		})
+
+	</script>
+
+	<style type="text/css">
+		
+	body {
+		
+	}
+
+	.box {
+		border: solid 2px;
+		max-width: 360px;
+		margin: 50px auto;
+		background-color: #FFFFBB;
+	}
+
+	.letter {
+		margin: 10px auto;
+		width: 180px;
+		border: solid 2px;
+		border-radius: 10px;
+		padding: 10px;
+		color: red;
+	}
+
+	.btn {
+		margin: 5px auto;
+		width: 180px;
+		text-align: center;
+	}
+	
+	#hide {
+		border: solid 1px;
+		border-radius: 5px;
+		width: 80px;
+		height: 40px;
+	}
+	#show {
+		border: solid 1px;
+		border-radius: 5px;
+		width: 80px;
+		height: 40px;
+	}
+
+	#hide:hover {
+		cursor: pointer;
+	}
+
+	#show:hover {
+		cursor: pointer;
+	}
+
+	.showme {
+		visibility: hidden;
+	}
+
+	</style>
+
+</head>
+<body>
+	
+	<div class="box">
+		<div class="letter">Hello World ,</div>
+		<div class="btn">
+		    <input type="button" id="hide" value="Hide">
+		    <input type="button" id="show" value="Show">
+	 	</div>
+ 	</div>
+</body>
+</html>
+
+
+
