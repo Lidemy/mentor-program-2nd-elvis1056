@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>week4.hw1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		
+		body {
+			margin: 0px;
+		}
+
+		.box {
+			display: block;
+			border: solid 3px;
+			width: 400px;
+			margin: auto;
+			padding: 20px;
+			border-color: #DDDDDD;
+		}
+
+		.compute {
+			display: inline-block;
+			border: solid 2px;
+			width: 400px;
+			height: 56px;
+			font-size: 56px;
+			text-align: right;
+			margin-bottom: 12px;
+		}
+
+
+		.main {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 6px;
+		}
+
+		.main > button {
+			border: solid 2px;
+			width: 90px;
+			height: 36px;
+		}
+
+		.main > button:hover {
+			cursor: pointer;
+			border-color: #EEE;
+		}
+
+		#compute_equal {
+			width:194px;
+		}
+
+		.compute_sign
+
+	</style>
+
+</head>
+
+<body>
+	<div class="box">
+
+		<div class="compute"></div>
+		
+		<div class="main">
+			<button id="ac">AC</button>
+			<button class="compute_sign">÷</button>
+		</div>
+
+		<div class="main">
+			<button class="compute_number nb7">7</button>
+			<button class="compute_number nb8">8</button>
+			<button class="compute_number nb9">9</button>
+			<button class="compute_sign">×</button>
+		</div>
+
+		<div class="main">
+			<button class="compute_number nb4">4</button>
+			<button class="compute_number nb5">5</button>
+			<button class="compute_number nb6">6</button>
+			<button class="compute_sign minus">-</button>
+		</div>
+
+		<div class="main">
+			<button class="compute_number nb1">1</button>
+			<button class="compute_number nb2">2</button>
+			<button class="compute_number nb3">3</button>
+			<button class="compute_sign plus">+</button>
+		</div>
+
+		<div class="main">
+			<button class="compute_number nb0">0</button>
+			<button class="compute_number">.</button>
+			<button id="compute_equal">=</button>
+		</div>
+
+	<script>
+		
+		let firstNumber = null
+		let secondNumber = null
+		let operator = null
+
+		for(let i = 0 ; i <= 9 ; i++) {
+			document.querySelector(".nb"+i).addEventListener("click", () => {
+				clickNumber(i)
+			})
+		}
+
+		document.querySelector(".compute_sign.plus").addEventListener("click", () => {
+			handleOperator("+")
+		})
+		document.querySelector(".compute_sign.minus").addEventListener("click", () => {
+			handleOperator("-")
+		})
+		document.querySelector("#compute_equal").addEventListener("click", () => {
+			handleOperator("=")
+		})
+
+		function clickNumber(num) {
+			appendResult(num)
+		}
+
+		function handleOperator (op) {
+			if ( op === "=" ) {
+				secondNumber = Number(getResult())
+				if(compute_sign === "+") {
+					setResult(firstNumber + secondNumber)
+				} else if (compute_sign === "-") {
+					setResult(firstNumber - secondNumber)
+				}
+			} else {
+				firstNumber = Number(getResult())
+				setResult("")
+				compute_sign = op
+			}
+		}
+
+
+
+		function setResult(str) {
+			document.querySelector(".compute").innerText = str
+		}
+
+		function appendResult(str) {
+			document.querySelector(".compute").innerText += str
+		}
+		function getResult () {
+			return document.querySelector(".compute").innerText
+		}
+
+	</script>
+	
+	</div>
+	
+
+</body>
+</html>

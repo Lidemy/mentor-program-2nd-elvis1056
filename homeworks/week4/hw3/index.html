@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		
+	body {
+		background: url(https://lolstatic-a.akamaihd.net/lolkit/1.1.6/resources/images/bg-default.jpg) ;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: : fixed;
+		margin: 0px;
+	}
+
+	.container {
+		background-color: rgba(0,0,0,0.5);
+		min-height: 100vh;
+		padding: 20px;
+	}
+
+	.row {
+		width: 1000px;
+		margin: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	.game {
+		width: 300px;
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+
+	.top img {
+		width: 100%;
+	}
+
+	.bottom {
+		background: rgba(0,0,0,0.6);
+		padding: 10px;
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+
+	.bottom__left {
+		width: 50px;
+		height: 50px;
+		margin-right: 10px;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+
+
+	.bottom__left img {
+		width: 100%;
+	}
+
+	.bottom__right {
+		color: white;
+	}
+
+	.channel__name {
+		margin-bottom: 6px;
+	}
+
+	</style>
+
+
+	<script type="text/javascript">
+		
+	document.addEventListener("DOMContentLoaded", () => {
+		var clientId = "xz6dj2rzycbnttjx1jeflood62ru70"
+		var limit = 20;
+		var apiUrl = "https://api.twitch.tv/kraken/streams/?game=League%20of%20Legends&limit=" + limit;
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", apiUrl, true);
+		xhr.setRequestHeader("client-id",clientId);
+		xhr.send();
+
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState === 4 && xhr.status === 200) {
+				var data = JSON.parse(xhr.responseText);  // 將JSON的字串轉換成javaSrcipt的陣列
+				console.log(data)
+				useData(data);
+			} 
+		}
+
+		function useData (array) {
+             const streams = array.streams;
+             const row = document.querySelector(".row");
+             console.log(row)
+             streams.forEach((element, index, array) => {
+
+             		//創建每一個DIV的元素
+
+             	let game = document.createElement("div");
+					game.classList.add("game");
+
+					let top = document.createElement("div");
+						top.classList.add("top");
+
+						let topimg = document.createElement("img");
+							topimg.setAttribute("src", streams[index].preview.medium)
+							top.appendChild(topimg); // 將直播畫面加入top中
+
+					let bottom = document.createElement("div");
+						bottom.classList.add("bottom");
+
+						let bottom__left = document.createElement("div");
+							bottom__left.classList.add("bottom__left");
+
+							let bottom__left__log = document.createElement("img");
+								bottom__left__log.setAttribute("src", streams[index].channel.logo); // 取到logo資料
+								bottom__left.appendChild(bottom__left__log); //將logo加入previewLogo中
+
+
+						let bottom__right = document.createElement("div");
+							bottom__right.classList.add("bottom__right");
+
+							let channel__name = document.createElement("div");
+								channel__name.innerText = streams[index].channel.status;
+								channel__name.classList.add("channel__name");
+
+							let owner__name = document.createElement("div");
+								owner__name.innerText = streams[index].channel.display_name;
+								owner__name.classList.add("preview__name");
+				
+				game.appendChild(top);		
+				game.appendChild(bottom);
+				bottom.appendChild(bottom__left);
+				bottom.appendChild(bottom__right);
+				bottom__right.appendChild(channel__name);
+				bottom__right.appendChild(owner__name);
+
+				document.querySelector(".row").appendChild(game); // 將所有東西放入preview class中
+
+			})
+            }
+        
+    })
+
+
+	</script>
+
+
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="game">
+				<div class="top">
+					<img src="https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg">
+				</div>
+				<div class="bottom">
+					<div class="bottom__left">
+						<img src="https://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png">
+					</div>
+					<div class="bottom__right">
+						<div class="channel__name"></div>
+						<div class="owner__name">Name</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+</body>
+</html>
