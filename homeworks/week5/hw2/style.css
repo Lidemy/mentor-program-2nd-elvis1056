@@ -1,0 +1,111 @@
+
+	
+	body {
+		background-color: #EEE; 
+	}
+
+	.container {
+		max-width: 700px;
+		margin: 20px auto;
+	}
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.title {
+		font-size: 50px;
+		color: green;
+	}
+
+	.button__logout {
+		font-size: 25px;
+		padding: 5px;
+		border: 2px solid;
+		border-radius: 10px;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+
+	.comment__list {
+		margin: 5px;
+		padding: 10px;
+		border: 2px solid;
+	}
+
+	.comment__main {
+		margin-bottom: 10px;
+	}
+
+	.comment__user {
+		display: flex;
+		margin-bottom: 10px;
+		font-size: 28px;
+	}
+
+	.comment__maintextarea {
+		height: 200px;
+		width: 650px;
+		border: 2px solid;
+		border-radius: 5px;
+	}
+
+	.comment__button {
+		font-size: 20px;
+		border: 2px solid;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.comment {
+		margin: 5px;
+		padding: 20px;
+		border: 2px solid;
+	}
+
+	.comment__textarea__sub{
+		height: 100px;
+		width: 600px;
+		border: 2px solid;
+		border-radius: 5px;
+	}
+
+	.comment__sub {
+		margin-bottom: 10px;
+		margin-left: 10px;
+		font-size: 20px;
+	}
+
+	.comment__textarea__sub {
+		height: 100px;
+		width: 580px;
+		border: 2px solid;
+		border-radius: 5px;
+	}
+
+	.comment__user__other {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+		font-size: 28px;
+	}
+
+	.comment__user__sub {
+		display: flex;
+		justify-content: space-between;
+		margin-left: 10px;
+		margin-bottom: 10px;
+		font-size: 18px;
+	}
+
+	.comment__content__sub {
+		margin-bottom: 20px;
+		margin-left: 10px;
+	}
+
+
+	.comment__content {
+		margin-bottom: 20px;
+	}
