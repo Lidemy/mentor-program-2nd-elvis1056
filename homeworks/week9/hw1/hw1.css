@@ -1,0 +1,93 @@
+body {
+  background-color: #EEE;
+}
+body container {
+  max-width: 700px;
+  margin: 20px auto;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body title {
+  font-size: 50px;
+  color: green;
+}
+body button__logout {
+  font-size: 25px;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+body comment {
+  margin: 5px;
+  padding: 20px;
+  border: 2px solid;
+}
+body comment__list {
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid;
+}
+body comment__main {
+  margin-bottom: 10px;
+}
+body comment__user {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+body comment__maintextarea {
+  height: 200px;
+  width: 650px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+body comment__button {
+  font-size: 20px;
+  border: 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body comment__textarea__sub {
+  height: 100px;
+  width: 600px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+body comment__sub {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+body comment__textarea__sub {
+  height: 100px;
+  width: 580px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+body comment__user__other {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+body comment__user__sub {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+body comment__content__sub {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+body comment__content {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=hw1.css.map */
